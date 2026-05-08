@@ -1,30 +1,27 @@
-<?php require_once 'db.php'; ?>
+<?php require_once '../../db.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Nzuritechnologies</title>
+    <title>Nantongo_sumayiya - Nzuritechnologies</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 50px auto; padding: 20px; background: #f4f4f4; }
-        h1 { color: #333; }
-        .slogan { color: #666; font-style: italic; margin-bottom: 30px; }
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #4CAF50; color: white; }
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; background: #f9f9f9; }
+        .profile { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #4CAF50; }
     </style>
 </head>
 <body>
-    <h1>Nzuritechnologies</h1>
-    <p><strong>Domain:</strong> nzuritech.org</p>
-    <p class="slogan">"Secure, Fast, Access"</p>
-    <h2>Our Team Members</h2>
-    <table>
-        <tr><th>Name</th><th>Registration Number</th><th>Role</th><th>Subdomain</th></tr>
+    <div class="profile">
+        <h1>Welcome to Nantongo_sumayiya's subdomain</h1>
         <?php
-        $stmt = $pdo->query("SELECT * FROM members ORDER BY id");
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "<tr><td>{$row['name']}</td><td>{$row['registration_number']}</td><td>{$row['role']}</td><td>{$row['subdomain']}</td></tr>";
+        $stmt = $pdo->prepare("SELECT * FROM members WHERE name = ?");
+        $stmt->execute(['Nantongo_sumayiya']);
+        $member = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($member) {
+            echo "<p><strong>Name:</strong> {$member['name']}</p>";
+            echo "<p><strong>Registration Number:</strong> {$member['registration_number']}</p>";
+            echo "<p><strong>Role:</strong> {$member['role']}</p>";
         }
         ?>
-    </table>
+    </div>
 </body>
 </html>
