@@ -15,7 +15,7 @@
 <body>
     <h1>Nzuritechnologies</h1>
     <p><strong>Domain:</strong> nzuritech.org</p>
-    <p class="slogan">"Secure, Fast, Access"</p>
+    <p class="slogan">"Secure, Fast, Access" we are group w and this is the course work project for wsa</p>
     <h2>Our Team Members</h2>
     <table>
         <tr><th>Name</th><th>Registration Number</th><th>Role</th><th>Subdomain</th></tr>
